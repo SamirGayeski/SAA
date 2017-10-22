@@ -247,6 +247,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('{id}/edit', ['as'=>'atendimentos.edit', 'uses'=>'AtendimentosController@edit']);
         Route::put('{id}/update', ['as'=>'atendimentos.update', 'uses'=>'AtendimentosController@update']);
     });
+
+    Route::group(['prefix'=>'historicos', 'where'=>['id'=>'[0-9]+']], function (){
+        Route::get('', ['as'=>'historicos', 'uses'=>'HistoricosController@index']);
+        Route::post('search', ['as'=>'historicos.search', 'uses'=>'HistoricosController@search']);
+    });
 });
 
 Auth::routes();

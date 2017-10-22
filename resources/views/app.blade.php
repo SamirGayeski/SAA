@@ -33,7 +33,7 @@
             <div id="wrapper">
                 <!-- Sidebar -->
                 <div id="sidebar-wrapper-menu">
-                    <ul class="sidebar-nav" style="margin-left:0;">
+                    <ul class="sidebar-nav" style="margin-left:0; font-family: Helvetica,Arial,sans-serif; font-size: 14px;">
                         <li class="sidebar-brand">
                             <a href="#menu-toggle"  id="menu-toggle" style="margin-top: 5px;float:right;" >
                                 <img width="120px" style="padding-bottom: 15px;" src="{!! asset('images/logo.png') !!}">
@@ -75,7 +75,7 @@
                         </li>
                         <li>
                             <a href="{{ url('procedimentos') }}">
-                                <i id="icon" class="fa fa-paste" aria-hidden="true" title="Procedimentos"></i>
+                                <i id="icon" class="fa fa-stethoscope" aria-hidden="true" title="Procedimentos"></i>
                                 <span style="margin-left:10px;">Procedimentos</span>
                             </a>
                         </li>
@@ -91,7 +91,20 @@
                                 <span style="margin-left:10px;"> Cidades</span>
                             </a>
                         </li>
-                        <hr size="300" width="100%" align="left" style="border-top: 1.5px solid rgba(238, 238, 238, 0.44); margin-bottom: 0px; margin-top: 5px;">
+                        <hr size="300" width="100%" align="left" style="border-top: 1.5px solid rgba(238, 238, 238, 0.44); margin-bottom: 2px; margin-top: 4px;">
+                        <li>
+                            <a href="{{ url('historicos') }}">
+                                <i id="icon" class="fa fa-h-square" aria-hidden="true" title="Usuários"></i>
+                                <span style="margin-left:10px;"> Históricos</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('#') }}">
+                                <i id="icon" class="fa fa-files-o" aria-hidden="true" title="Cidades"></i>
+                                <span style="margin-left:10px;"> Relatórios</span>
+                            </a>
+                        </li>
+                        <hr size="300" width="100%" align="left" style="border-top: 1.5px solid rgba(238, 238, 238, 0.44); margin-bottom: 2px; margin-top: 4px;">
                         <li>
                             <span>
                                 <a href="{{ route('logout') }}"
