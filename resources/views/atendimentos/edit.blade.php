@@ -40,8 +40,8 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <!-- <a href="{{ route('agendamentos') }}" class="btn btn-danger">Cancelar</a> -->
-                   {!! Form::submit('Editar Atendimento', ['class'=>'btn btn-outline-info', 'style'=>'margin-left: 5px; font-weight: bold;']) !!}
+                    <a href="{{ route('agendamentos') }}" class="btn btn-outline-info"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+                    {!! Form::submit('Editar Atendimento', ['class'=>'btn btn-info', 'style'=>'margin-left: 5px;']) !!}
                 </div>
             </div>
         </h3>
