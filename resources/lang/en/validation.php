@@ -12,7 +12,7 @@ return [
     */
     'accepted'             => ':Attribute deve ser aceito.',
     'active_url'           => ':Attribute não é uma URL válida.',
-    'after'                => ':Attribute deve ser uma data depois de :date.',
+    'after'                => ':Attribute não pode estar no passado.',
     'alpha'                => ':Attribute deve conter somente letras.',
     'alpha_dash'           => ':Attribute deve conter letras, números e traços.',
     'alpha_num'            => ':Attribute deve conter somente letras e números.',

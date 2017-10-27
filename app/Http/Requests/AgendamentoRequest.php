@@ -29,7 +29,7 @@ class AgendamentoRequest extends FormRequest
             'procedimento_id' => 'required',
             'usuario_id' => 'required',
             'convenio' => 'required',
-            'data' => 'required',
+            'data' => 'required|date|after:'.\Carbon\Carbon::now().'-1 day',
             'horario' => 'required',
             'observacoes' => 'max:100'
         ];
