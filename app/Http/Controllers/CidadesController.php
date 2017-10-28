@@ -4,9 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Cidade;
 use App\Http\Requests\CidadeRequest;
+use App\Log;
 use App\Paciente;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class CidadesController extends Controller
 {
@@ -27,6 +29,7 @@ class CidadesController extends Controller
     public function store(CidadeRequest $request){
         $novo_cidade = $request->all();
         Cidade::create($novo_cidade);
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$request->nome, 'tabela'=>'cidade']);
 
         flash('Cidade incluída com sucesso!')->success();
         return redirect()->route('cidades');
@@ -34,6 +37,8 @@ class CidadesController extends Controller
 
     public function destroy($id){
         if(Paciente::where('cidade_id', '=', $id)->count() == 0){
+            $cidade = Cidade::where('id', '=',$id)->get();
+            Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'delete', 'descricao'=>$cidade->first()->nome, 'tabela'=>'cidade']);
             Cidade::find($id)->delete();
             flash('Cidade excluída com sucesso!')->success();
         } else {
@@ -49,6 +54,7 @@ class CidadesController extends Controller
 
     public function update(CidadeRequest $request, $id){
         $cidade = Cidade::find($id)->update($request->all());
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$request->nome, 'tabela'=>'cidade']);
         flash('Cidade editada com sucesso!')->success();
         return redirect()->route('cidades');
     }

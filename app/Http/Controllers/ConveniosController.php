@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Convenio;
 use App\Http\Requests\PlanoRequest;
+use App\Log;
 use App\Paciente;
 use App\Plano;
 use App\Http\Requests\ConvenioRequest;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class ConveniosController extends Controller
 {
@@ -29,8 +31,10 @@ class ConveniosController extends Controller
     public function store(ConvenioRequest $request, PlanoRequest $request_plano){
         $novo_convenio = $request->all();
         $convenio = Convenio::create($novo_convenio);
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$request->nome, 'tabela'=>'convênio']);
         if($request_plano->descricao != null){
             Plano::create(['descricao'=>$request_plano->descricao, 'convenio_id'=>$convenio->id]);
+            Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$request_plano->descricao, 'tabela'=>'plano']);
             return redirect()->route('convenios.edit', ['id'=>$convenio->id]);
         }
         flash('Convênio incluído com sucesso!')->success();
@@ -39,12 +43,15 @@ class ConveniosController extends Controller
 
     public function storeplano($id, PlanoRequest $request_plano){
          Plano::create(['descricao'=>$request_plano->descricao, 'convenio_id'=>$id]);
-        flash('Plano incluído com sucesso!')->success();
+         Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$request_plano->descricao, 'tabela'=>'plano']);
+         flash('Plano incluído com sucesso!')->success();
          return redirect()->route('convenios.edit', ['id'=>$id]);
     }
 
     public function destroy($id){
         if(Paciente::where('convenio_id', '=', $id)->count() == 0){
+            $convenio = Convenio::where('id', '=',$id)->get();
+            Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'delete', 'descricao'=>$convenio->first()->nome, 'tabela'=>'convênio']);
             Convenio::find($id)->delete();
             flash('Convênio excluído com sucesso!')->success();
         } else {
@@ -55,6 +62,8 @@ class ConveniosController extends Controller
 
     public function destroyplano($id, $id_convenio){
         if(Paciente::where('plano_id', '=', $id)->count() == 0){
+            $plano = Plano::where('id', '=',$id)->get();
+            Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'delete', 'descricao'=>$plano->first()->descricao, 'tabela'=>'plano']);
             Plano::find($id)->delete();
             flash('Plano excluído com sucesso!')->success();
         } else {
@@ -72,12 +81,14 @@ class ConveniosController extends Controller
 
     public function update(ConvenioRequest $request, $id){
          $convenio = Convenio::find($id)->update($request->all());
-        flash('Convênio editado com sucesso!')->success();
+         Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$request->nome, 'tabela'=>'convênio']);
+         flash('Convênio editado com sucesso!')->success();
          return redirect()->route('convenios');
     }
 
     public function updateplano(PlanoRequest $request_plano, $id_convenio){
         $plano = Plano::find($request_plano->id)->update($request_plano->all());
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$request_plano->descricao, 'tabela'=>'plano']);
         flash('Plano editado com sucesso!')->success();
         return redirect()->route('convenios.edit', ['id'=>$id_convenio]);
     }

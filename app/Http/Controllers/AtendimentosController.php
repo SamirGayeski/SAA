@@ -8,10 +8,13 @@ use App\ExameFisico;
 use App\HipoteseDiagnostica;
 use App\Anamnese;
 use App\Http\Requests\ExameFisicoRequest;
+use App\Log;
+use App\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Requests\AtendimentoRequest;
 use App\Http\Requests\HipoteseDiagnosticaRequest;
 use App\Http\Requests\AnamneseRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class AtendimentosController extends Controller
@@ -42,6 +45,13 @@ class AtendimentosController extends Controller
         $novo_atendimento = $request_atendimento->all();
         $atendimento = Atendimento::create($novo_atendimento);
 
+        $usuario = DB::table('atendimentos')
+            ->join('agendamentos', 'atendimentos.agendamento_id', '=', 'agendamentos.id')
+            ->join('usuarios', 'agendamentos.usuario_id', '=', 'usuarios.id')
+            ->where('atendimentos.id', '=', $atendimento->id)
+            ->select('usuarios.nome')->get();
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$usuario->first()->nome, 'tabela'=>'atendimento']);
+
         Anamnese::create([
             'queixaPrincipal'=>$request_anamnese->queixaPrincipal,
             'historia'=>$request_anamnese->historia,
@@ -57,6 +67,7 @@ class AtendimentosController extends Controller
             'usoMedicamento'=>$request_anamnese->usoMedicamento,
             'atendimento_id'=>$atendimento->id
         ]);
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$usuario->first()->nome, 'tabela'=>'anamnese']);
 
         ExameFisico::create([
             'altura'=>$request_examefisico->altura,
@@ -67,12 +78,14 @@ class AtendimentosController extends Controller
             'observacoesGerais'=>$request_examefisico->observacoesGerais,
             'atendimento_id'=>$atendimento->id
         ]);
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$usuario->first()->nome, 'tabela'=>'exame físico']);
 
         HipoteseDiagnostica::create([
             'diagnostico'=>$request_hipotese->diagnostico,
             'observacoes'=>$request_hipotese->observacoes,
             'atendimento_id'=>$atendimento->id
         ]);
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$usuario->first()->nome, 'tabela'=>'hipótese diagnóstica']);
 
         flash('Atendimento finalizado com sucesso!')->success();
         return redirect()->route('agendamentos');
@@ -98,14 +111,24 @@ class AtendimentosController extends Controller
     public function update(AtendimentoRequest $request_atendimento, HipoteseDiagnosticaRequest $request_hipotese, AnamneseRequest $request_anamnese, ExameFisicoRequest $request_examefisico, $id){
         $atendimento = Atendimento::find($id)->update($request_atendimento->all());
 
+        $usuario = DB::table('atendimentos')
+            ->join('agendamentos', 'atendimentos.agendamento_id', '=', 'agendamentos.id')
+            ->join('usuarios', 'agendamentos.usuario_id', '=', 'usuarios.id')
+            ->where('atendimentos.id', '=', $id)
+            ->select('usuarios.nome')->get();
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$usuario->first()->nome, 'tabela'=>'atendimento']);
+
         $anamnese_id = Anamnese::where('atendimento_id', '=', $id)->select('id');
         $anamnese = Anamnese::find($anamnese_id->first()->id)->update($request_anamnese->all());
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$usuario->first()->nome, 'tabela'=>'anamnese']);
 
         $hipotesediagnostica_id = HipoteseDiagnostica::where('atendimento_id', '=', $id)->select('id');
         $hipotesediagnostica = HipoteseDiagnostica::find($hipotesediagnostica_id->first()->id)->update($request_hipotese->all());
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$usuario->first()->nome, 'tabela'=>'hipótese diagnóstica']);
 
         $examefisico_id = ExameFisico::where('atendimento_id', '=', $id)->select('id');
         $examefisico= ExameFisico::find($examefisico_id->first()->id)->update($request_examefisico->all());
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$usuario->first()->nome, 'tabela'=>'exame físico']);
 
         flash('Atendimento editado com sucesso!')->success();
         return redirect()->route('agendamentos');

@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Log;
 use App\Usuario;
 use Illuminate\Http\Request;
 use App\Http\Requests\AgendamentoRequest;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\URL;
 use MaddHatter\LaravelFullcalendar\Calendar;
@@ -133,6 +135,8 @@ class AgendamentosController extends Controller
     public function store(AgendamentoRequest $request){
         $novo_agendamento = $request->all();
         Agendamento::create($novo_agendamento);
+        $usuario = Usuario::where('id','=', $request->usuario_id)->get();
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'create', 'descricao'=>$usuario->first()->nome, 'tabela'=>'agendamento']);
 
         flash('Agendamento incluído com sucesso!')->success();
         return redirect()->route('agendamentos');
@@ -145,6 +149,9 @@ class AgendamentosController extends Controller
 
     public function update(AgendamentoRequest $request, $id){
         $agendamento = Agendamento::find($id)->update($request->all());
+        $usuario = Usuario::where('id','=', $request->usuario_id)->select('nome')->get();
+        Log::create(['usuario'=>Auth::user()->nome, 'email'=>Auth::user()->email, 'acao'=>'update', 'descricao'=>$usuario->first()->nome, 'tabela'=>'agendamento']);
+
         flash('Agendamento editado com sucesso!')->success();
         return redirect()->route('agendamentos');
     }
