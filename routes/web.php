@@ -11,9 +11,13 @@
 |
 */
 
+Route::get('/', function () {
+    return view('auth/login');
+});
+
 Route::group(['middleware' => ['web']], function () {
 
-    Route::get('/', function () {
+    Route::get('/logado', function () {
         return view('dashboard/index');
     });
 
@@ -251,6 +255,10 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['prefix'=>'historicos', 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'historicos', 'uses'=>'HistoricosController@index']);
         Route::post('search', ['as'=>'historicos.search', 'uses'=>'HistoricosController@search']);
+    });
+
+    Route::group(['prefix'=>'relatorios', 'where'=>['id'=>'[0-9]+']], function (){
+        Route::get('', ['as'=>'relatorios', 'uses'=>'ReportController@index']);
     });
 });
 

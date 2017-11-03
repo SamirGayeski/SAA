@@ -99,7 +99,7 @@
                             </a>
                         </li>
                         <li>
-                            <a href="{{ url('#') }}">
+                            <a href="{{ url('relatorios') }}">
                                 <i id="icon" class="fa fa-files-o" aria-hidden="true" title="Cidades"></i>
                                 <span style="margin-left:10px;"> Relatórios</span>
                             </a>
@@ -124,6 +124,17 @@
 
                 <!-- Page Content -->
                 <div id="page-content-wrapper-menu">
+                    <!--<nav class="navbar navbar-default navbar-static-top">
+                        <div class="container">
+                            <div class="navbar-header">
+                                <div class="collapse navbar-collapse" id="app-navbar-collapse">
+                                    <ul class="nav navbar-nav navbar-right">
+                                        <li><a href="#">Sair</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </nav>-->
                     <div class="container" style="position: absolute; margin-top: 20px;">
                         <div class="row">
                             <div class="col-lg-12">

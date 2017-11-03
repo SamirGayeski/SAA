@@ -4,20 +4,20 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "c5417579ba0d5d1a6de2d94cd47d0116",
+    "content-hash": "9028da00e5a04c70f4c65be85d550e9c",
     "packages": [
         {
             "name": "aws/aws-sdk-php",
-            "version": "3.36.34",
+            "version": "3.36.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/aws/aws-sdk-php.git",
-                "reference": "adc4e9928730cb65b9b7914084cbf1d8c988419a"
+                "reference": "26ed9d51a11ca88ce919d7b0884b4b47232997b4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/adc4e9928730cb65b9b7914084cbf1d8c988419a",
-                "reference": "adc4e9928730cb65b9b7914084cbf1d8c988419a",
+                "url": "https://api.github.com/repos/aws/aws-sdk-php/zipball/26ed9d51a11ca88ce919d7b0884b4b47232997b4",
+                "reference": "26ed9d51a11ca88ce919d7b0884b4b47232997b4",
                 "shasum": ""
             },
             "require": {
@@ -84,7 +84,7 @@
                 "s3",
                 "sdk"
             ],
-            "time": "2017-10-26T20:45:00+00:00"
+            "time": "2017-11-02T23:56:51+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",
@@ -227,6 +227,52 @@
                 "parser"
             ],
             "time": "2017-05-14T14:47:48+00:00"
+        },
+        {
+            "name": "geekcom/phpjasper",
+            "version": "v2.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/PHPJasper/phpjasper.git",
+                "reference": "b64a6dade95514ed21c67274106ab250cf266b58"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/PHPJasper/phpjasper/zipball/b64a6dade95514ed21c67274106ab250cf266b58",
+                "reference": "b64a6dade95514ed21c67274106ab250cf266b58",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.1",
+                "squizlabs/php_codesniffer": "^3.1"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PHPJasper\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Daniel Rodrigues Lima",
+                    "email": "danielrodrigues-ti@hotmail.com",
+                    "role": "lead"
+                }
+            ],
+            "description": "A PHP report generator",
+            "keywords": [
+                "pdf",
+                "php-reports",
+                "reports"
+            ],
+            "time": "2017-10-31T16:13:25+00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1093,7 +1139,7 @@
         },
         {
             "name": "mtdowling/cron-expression",
-            "version": "v1.2.0",
+            "version": "v1.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/mtdowling/cron-expression.git",

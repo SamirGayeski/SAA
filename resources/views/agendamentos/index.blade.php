@@ -10,7 +10,8 @@
     </head>
     <body>
         <div class="container">
-            <a href="{{ route('agendamentos.create') }}" class="btn-sm btn btn-default" style="float: right; padding: 6px 25px 5px 25px; margin-top: 5px; margin-right: 7px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Agendamento</a>
+            <a data-toggle="modal" data-target=".bs-example-modal-sm" title="Legenda" class="btn-sm btn btn-default" style="float: right; padding: 1px 15px 1px 15px; margin-top: 5px; margin-right: 7px; font-size: 18px;"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+            <a href="{{ route('agendamentos.create') }}" class="btn-sm btn btn-default" style="float: right; padding: 6px 25px 5px 25px; margin-top: 5px; margin-right: 14px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Agendamento</a>
             <div class="col-md-3" style="float: right; margin-top: 5px;">
                 {{ Form::select('profissional', ['0'=>'Todos os profissionais'] + \App\Usuario::where('tipoUsuario', '=', 'Profissional da Saúde')->orderBy('nome')->pluck('nome','id')->toArray(), null, ['class'=>'form-control', 'placeholder' => 'Selecione um profissional', 'id' => 'profissional', 'style'=>'height: 31px;']) }}
             </div>
@@ -28,7 +29,6 @@
                     {!! $calendar->script() !!}
 
                     <div>
-                        <button type="button" class="btn btn-primary" data-toggle="modal" style="float: right; margin-top: 10px; padding: 5px 25px 5px 25px;" data-target=".bs-example-modal-sm">Legenda</button>
 
                         <div class="modal bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel">
                             <div class="modal-dialog modal-sm" role="document">
