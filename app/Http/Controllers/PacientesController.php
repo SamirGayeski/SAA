@@ -22,7 +22,7 @@ class PacientesController extends Controller
     public function index(){
     $pacientes = Paciente::paginate(15);
     return view('pacientes.index', ['pacientes'=>$pacientes]);
-}
+    }
 
     public function search(){
         $pacientes = Paciente::where('nome', 'like', '%Mat%')->get();

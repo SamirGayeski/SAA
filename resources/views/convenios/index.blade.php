@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3>Convênios</h3>
+        <h3><i class="fa fa-medkit" aria-hidden="true"></i> Convênios</h3>
         <a href="{{ route('convenios.create') }}" class="btn-sm btn btn-outline-info" style="float: right; margin-bottom: 10px; margin-top: 25px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Convênio</a>
         <table class="table table-striped table-bordered table-hover">
             <thead>

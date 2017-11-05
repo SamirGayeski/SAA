@@ -257,8 +257,42 @@ Route::group(['middleware' => ['web']], function () {
         Route::post('search', ['as'=>'historicos.search', 'uses'=>'HistoricosController@search']);
     });
 
+    Route::group(['prefix'=>'logs', 'where'=>['id'=>'[0-9]+']], function (){
+        Route::get('', ['as'=>'logs', 'uses'=>'LogsController@index']);
+    });
+
     Route::group(['prefix'=>'relatorios', 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'relatorios', 'uses'=>'ReportController@index']);
+        Route::get('pacientes', ['as'=>'relatorios.pacientes', 'uses'=>'ReportController@paciente']);
+        Route::get('{status}/agendamentos', ['as'=>'relatorios.agendamentos', 'uses'=>'ReportController@agendamentos']);
+        Route::get('{datainicial}/{datafinal}/atendimentos', ['as'=>'relatorios.atendimentos', 'uses'=>'ReportController@atendimentos']);
+
+        //verifica status
+        Route::get('ajax-reportsagendamento', function(){
+            $status = \Illuminate\Support\Facades\Input::get('status');
+            $count = \App\Agendamento::where('status', '=', $status)->count('*');
+            if($count > 0){
+                $reportstatus = array(true);
+            }else{
+                $reportstatus = array(false);
+            }
+            return Response::json($reportstatus);
+        });
+
+        //data inicial e final
+        Route::get('ajax-reportsatendimento', function(){
+            $datainicial = \Illuminate\Support\Facades\Input::get('datainicial');
+            $datafinal = \Illuminate\Support\Facades\Input::get('datafinal');
+
+            $count = DB::table('atendimentos')->join('agendamentos', function ($join){$join->on('atendimentos.agendamento_id', '=', 'agendamentos.id');})
+                                ->whereBetween('agendamentos.data', [$datainicial, $datafinal])->count('*');
+            if($count > 0){
+                $reportdata = array(true);
+            }else{
+                $reportdata = array(false);
+            }
+            return Response::json($reportdata);
+        });
     });
 });
 

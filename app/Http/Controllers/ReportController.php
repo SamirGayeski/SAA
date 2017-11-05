@@ -21,13 +21,17 @@ class ReportController extends Controller{
     }
 
     public function index(){
+        return view('reports.index');
+    }
+
+    public function atendimentos($datainicial, $datafinal){
 
         $input = public_path() .'/reports/Atendimentos.jasper';
         $output = public_path() . '/reports/Atendimentos';
         $options = [
             'format' => ['pdf'],
             'locale' => 'pt_BR',
-            'params' => ['datainicial'=>'2017-08-01', 'datafinal'=>'2017-10-30'],
+            'params' => ['datainicial'=>$datainicial, 'datafinal'=>$datafinal],
             'db_connection' => $this->getDatabaseConfig()
         ];
 
@@ -44,14 +48,14 @@ class ReportController extends Controller{
             ->header('Content-Disposition', 'inline; filename="Atendimentos.pdf"');
     }
 
-    public function agendamentos(){
+    public function agendamentos($status){
 
         $input = public_path() .'/reports/Agendamentos.jasper';
         $output = public_path() . '/reports/Agendamentos';
         $options = [
             'format' => ['pdf'],
             'locale' => 'pt_BR',
-            'params' => ['status'=>'Atendido'],
+            'params' => ['status'=>$status],
             'db_connection' => $this->getDatabaseConfig()
         ];
 
