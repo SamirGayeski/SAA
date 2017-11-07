@@ -26,7 +26,11 @@
             <!-- Atendimentos -->
             <div id="datainicial" class="col-md-3" style="display: none;">
                 {!! Form::label('datainicial', 'Data Inicial:') !!}
+<<<<<<< HEAD
                 {!! Form::date('datainicial', null, ['class'=>'form-control', 'id'=>'datainicial']) !!}
+=======
+                {!! Form::date('datafinal', null, ['class'=>'form-control', 'id'=>'datainicial']) !!}
+>>>>>>> b6edc8b7a8144adc2ff6c86127b904ba6b53c1e5
                 {!! Form::text('inputinicial', null, ['id'=>'inputinicial', 'style'=>'display: none;']) !!}
             </div>
             <div id="datafinal" class="col-md-3" style="display: none;">
