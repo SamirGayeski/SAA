@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3>Procedimentos</h3>
+        <h3><i class="fa fa-stethoscope" aria-hidden="true"></i> Procedimentos</h3>
         <a href="{{ route('procedimentos.create') }}" class="btn-sm btn btn-outline-info" style="float: right; margin-bottom: 10px; margin-top: 25px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Procedimento</a>
         <table class="table table-striped table-bordered table-hover">
             <thead>

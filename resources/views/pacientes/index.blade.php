@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3>Pacientes
+        <h3><i class="fa fa-male" aria-hidden="true"></i> Pacientes
             <div class="input-group-btn" style="float: right;">
                 {!! Form::text('search', null, ['class'=>'form-control', 'style'=>'border-bottom-right-radius: 0px; border-top-right-radius: 0px;']) !!}
                 <div class="input-group-addon"><a href="{{ route('pacientes.search') }}"><i class="fa fa-search" aria-hidden="true"></i> </a></div>

@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h3>Cidades</h3>
+        <h3><i class="fa fa-map-marker" aria-hidden="true"></i> Cidades</h3>
         <a href="{{ route('cidades.create') }}" class="btn-sm btn btn-outline-info" style="float: right; margin-bottom: 10px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Cidade</a>
         <table class="table table-striped table-bordered table-hover">
             <thead>

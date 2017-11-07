@@ -50,7 +50,7 @@
                         </li>
                         <hr size="300" width="100%" align="left" style="border-top: 1.5px solid rgba(238, 238, 238, 0.44); margin-bottom: 2px; margin-top: 4px;">
                         <li>
-                            <a href="{{ url('#') }}">
+                            <a href="{{ url('dashboard') }}">
                                 <i id="icon" class="fa fa-bar-chart" aria-hidden="true" title="Dashboard"></i>
                                 <span style="margin-left:10px;">Dashboard</span>
                             </a>
@@ -100,8 +100,14 @@
                         </li>
                         <li>
                             <a href="{{ url('relatorios') }}">
-                                <i id="icon" class="fa fa-files-o" aria-hidden="true" title="Cidades"></i>
+                                <i id="icon" class="fa fa-files-o" aria-hidden="true" title="Relatórios"></i>
                                 <span style="margin-left:10px;"> Relatórios</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ url('logs') }}">
+                                <i id="icon" class="fa fa-tasks" aria-hidden="true" title="Logs"></i>
+                                <span style="margin-left:10px;"> Logs</span>
                             </a>
                         </li>
                         <hr size="300" width="100%" align="left" style="border-top: 1.5px solid rgba(238, 238, 238, 0.44); margin-bottom: 2px; margin-top: 4px;">
