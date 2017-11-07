@@ -289,10 +289,13 @@ Route::group(['middleware' => ['web']], function () {
             }
             return Response::json($reportdata);
         });
+<<<<<<< HEAD
     });
 
     Route::group(['prefix'=>'dashboard', 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'dashboard', 'uses'=>'DashboardsController@index']);
+=======
+>>>>>>> b6edc8b7a8144adc2ff6c86127b904ba6b53c1e5
     });
 });
 
