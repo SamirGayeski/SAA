@@ -83,7 +83,7 @@ class ReportController extends Controller{
             'db_connection' => $this->getDatabaseConfig()
         ];
 
-        $jasper = new PHPJasper;
+        $jasper = new PHPJasper();
 
         $jasper->process($input, $output, $options)->execute();
         $file = $output . '.pdf';

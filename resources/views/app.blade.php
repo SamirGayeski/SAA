@@ -55,12 +55,21 @@
                                 <span style="margin-left:10px;">Dashboard</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ url('agendamentos') }}">
-                                <i id="icon" class="fa fa-calendar" aria-hidden="true" title="Agendamentos"></i>
-                                <span style="margin-left:10px;">Agenda</span>
-                            </a>
-                        </li>
+                        @if(Auth::user()->tipoUsuario == 'Profissional da Saúde' && Auth::user()->flagAdmin == false)
+                            <li>
+                                <a href="{{ route('agendamentos.profissional', ['id'=>Auth::user()->id]) }}">
+                                    <i id="icon" class="fa fa-calendar" aria-hidden="true" title="Agendamentos"></i>
+                                    <span style="margin-left:10px;">Agenda</span>
+                                </a>
+                            </li>
+                        @else
+                            <li>
+                                <a href="{{ url('agendamentos') }}">
+                                    <i id="icon" class="fa fa-calendar" aria-hidden="true" title="Agendamentos"></i>
+                                    <span style="margin-left:10px;">Agenda</span>
+                                </a>
+                            </li>
+                        @endif
                         <li>
                             <a href="{{ url('pacientes') }}">
                                 <i id="icon" class="fa fa-male" aria-hidden="true" title="Pacientes"></i>
@@ -79,18 +88,21 @@
                                 <span style="margin-left:10px;">Procedimentos</span>
                             </a>
                         </li>
+                        @if(Auth::user()->tipoUsuario == 'Profissional da Saúde' && Auth::user()->flagAdmin == true)
                         <li>
                             <a href="{{ url('usuarios') }}">
                                 <i id="icon" class="fa fa-user" aria-hidden="true" title="Usuários"></i>
                                 <span style="margin-left:10px;"> Usuários</span>
                             </a>
                         </li>
+                        @endif
                         <li>
                             <a href="{{ url('cidades') }}">
                                 <i id="icon" class="fa fa-map-marker" aria-hidden="true" title="Cidades"></i>
                                 <span style="margin-left:10px;"> Cidades</span>
                             </a>
                         </li>
+                        @if(Auth::user()->tipoUsuario == 'Profissional da Saúde')
                         <hr size="300" width="100%" align="left" style="border-top: 1.5px solid rgba(238, 238, 238, 0.44); margin-bottom: 2px; margin-top: 4px;">
                         <li>
                             <a href="{{ url('historicos') }}">
@@ -98,18 +110,22 @@
                                 <span style="margin-left:10px;"> Históricos</span>
                             </a>
                         </li>
-                        <li>
-                            <a href="{{ url('relatorios') }}">
-                                <i id="icon" class="fa fa-files-o" aria-hidden="true" title="Relatórios"></i>
-                                <span style="margin-left:10px;"> Relatórios</span>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ url('logs') }}">
-                                <i id="icon" class="fa fa-tasks" aria-hidden="true" title="Logs"></i>
-                                <span style="margin-left:10px;"> Logs</span>
-                            </a>
-                        </li>
+                            @if(Auth::user()->tipoUsuario == 'Profissional da Saúde' && Auth::user()->flagAdmin == true)
+                            <li>
+                                <a href="{{ url('relatorios') }}">
+                                    <i id="icon" class="fa fa-files-o" aria-hidden="true" title="Relatórios"></i>
+                                    <span style="margin-left:10px;"> Relatórios</span>
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="{{ url('logs') }}">
+                                    <i id="icon" class="fa fa-tasks" aria-hidden="true" title="Logs"></i>
+                                    <span style="margin-left:10px;"> Logs</span>
+                                </a>
+                            </li>
+                            @endif
+                        @endif
                         <hr size="300" width="100%" align="left" style="border-top: 1.5px solid rgba(238, 238, 238, 0.44); margin-bottom: 2px; margin-top: 4px;">
                         <li>
                             <span>

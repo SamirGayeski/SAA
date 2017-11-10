@@ -90,7 +90,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::put('{id_paciente}/updatefamiliar', ['as'=>'pacientes.updatefamiliar', 'uses'=>'PacientesController@updatefamiliar']);
     });
 
-    Route::group(['prefix'=>'usuarios', 'where'=>['id'=>'[0-9]+']], function (){
+    Route::group(['prefix'=>'usuarios', 'middleware'=>['profissional', 'recepcionista'],'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'usuarios', 'uses'=>'UsuariosController@index']);
         Route::get('search', ['as'=>'usuarios.search', 'uses'=>'UsuariosController@search']);
         Route::get('create', ['as'=>'usuarios.create', 'uses'=>'UsuariosController@create']);
@@ -101,7 +101,7 @@ Route::group(['middleware' => ['web']], function () {
     });
 
     Route::group(['prefix'=>'agendamentos', 'where'=>['id'=>'[0-9]+']], function (){
-        Route::get('', ['as'=>'agendamentos', 'uses'=>'AgendamentosController@index']);
+        Route::get('', ['as'=>'agendamentos', 'uses'=>'AgendamentosController@index'])->middleware('profissional');
         Route::get('create', ['as'=>'agendamentos.create', 'uses'=>'AgendamentosController@create']);
         Route::post('store', ['as'=>'agendamentos.store', 'uses'=>'AgendamentosController@store']);
         Route::get('{id}/destroy', ['as'=>'agendamentos.destroy', 'uses'=>'AgendamentosController@destroy']);
@@ -241,23 +241,23 @@ Route::group(['middleware' => ['web']], function () {
         });
     });
 
-    Route::group(['prefix'=>'atendimentos', 'where'=>['id'=>'[0-9]+']], function (){
+    Route::group(['prefix'=>'atendimentos', 'middleware'=>['recepcionista'], 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('{id}/create', ['as'=>'atendimentos.create', 'uses'=>'AtendimentosController@create']);
         Route::post('store', ['as'=>'atendimentos.store', 'uses'=>'AtendimentosController@store']);
         Route::get('{id}/edit', ['as'=>'atendimentos.edit', 'uses'=>'AtendimentosController@edit']);
         Route::put('{id}/update', ['as'=>'atendimentos.update', 'uses'=>'AtendimentosController@update']);
     });
 
-    Route::group(['prefix'=>'historicos', 'where'=>['id'=>'[0-9]+']], function (){
+    Route::group(['prefix'=>'historicos', 'middleware'=>['recepcionista'], 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'historicos', 'uses'=>'HistoricosController@index']);
         Route::post('search', ['as'=>'historicos.search', 'uses'=>'HistoricosController@search']);
     });
 
-    Route::group(['prefix'=>'logs', 'where'=>['id'=>'[0-9]+']], function (){
+    Route::group(['prefix'=>'logs', 'middleware'=>['profissional', 'recepcionista'], 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'logs', 'uses'=>'LogsController@index']);
     });
 
-    Route::group(['prefix'=>'relatorios', 'where'=>['id'=>'[0-9]+']], function (){
+    Route::group(['prefix'=>'relatorios', 'middleware'=>['profissional','recepcionista'], 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'relatorios', 'uses'=>'ReportController@index']);
         Route::get('pacientes', ['as'=>'relatorios.pacientes', 'uses'=>'ReportController@paciente']);
         Route::get('{status}/agendamentos', ['as'=>'relatorios.agendamentos', 'uses'=>'ReportController@agendamentos']);

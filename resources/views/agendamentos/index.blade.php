@@ -12,9 +12,11 @@
         <div class="container">
             <a data-toggle="modal" data-target=".bs-example-modal-sm" title="Legenda" class="btn-sm btn btn-default" style="float: right; padding: 1px 15px 1px 15px; margin-top: 5px; margin-right: 7px; font-size: 18px;"><i class="fa fa-cogs" aria-hidden="true"></i></a>
             <a href="{{ route('agendamentos.create') }}" class="btn-sm btn btn-default" style="float: right; padding: 6px 25px 5px 25px; margin-top: 5px; margin-right: 14px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Agendamento</a>
-            <div class="col-md-3" style="float: right; margin-top: 5px;">
-                {{ Form::select('profissional', ['0'=>'Todos os profissionais'] + \App\Usuario::where('tipoUsuario', '=', 'Profissional da Saúde')->orderBy('nome')->pluck('nome','id')->toArray(), null, ['class'=>'form-control', 'placeholder' => 'Selecione um profissional', 'id' => 'profissional', 'style'=>'height: 31px;']) }}
-            </div>
+            @if((Auth::user()->tipoUsuario == 'Profissional da Saúde' && Auth::user()->flagAdmin == true) or Auth::user()->tipoUsuario == 'Recepcionista')
+                <div class="col-md-3" style="float: right; margin-top: 5px;">
+                    {{ Form::select('profissional', ['0'=>'Todos os profissionais'] + \App\Usuario::where('tipoUsuario', '=', 'Profissional da Saúde')->orderBy('nome')->pluck('nome','id')->toArray(), null, ['class'=>'form-control', 'placeholder' => 'Selecione um profissional', 'id' => 'profissional', 'style'=>'height: 31px;']) }}
+                </div>
+            @endif
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     @if(isset($profissional))
