@@ -22,7 +22,18 @@ class AgendamentosController extends Controller
 
     public function index(){
         $events = [];
-        $data = Agendamento::all();
+
+        if(Auth::user()->tipoUsuario == 'Recepcionista'){
+            $p_atende = DB::table('recepcionista_atendes')
+                ->join('usuarios', 'recepcionista_atendes.profissionalsaude_id', '=', 'usuarios.id')
+                ->where('recepcionista_atendes.recepcionista_id', '=', Auth::user()->id)
+                ->select('usuarios.id');
+            $data = Agendamento::whereIn('usuario_id', $p_atende)->get();
+
+        } elseif (Auth::user()->tipoUsuario == 'Profissional da Saúde' && Auth::user()->flagAdmin == true) {
+            $data = Agendamento::all();
+        }
+
         if($data->count()){
             foreach ($data as $key => $value) {
 
@@ -73,7 +84,13 @@ class AgendamentosController extends Controller
         $events = [];
         if($id == 0){
             $data = Agendamento::all();
-        } else {
+        } elseif($id == 972382){
+            $p_atende = DB::table('recepcionista_atendes')
+                ->join('usuarios', 'recepcionista_atendes.profissionalsaude_id', '=', 'usuarios.id')
+                ->where('recepcionista_atendes.recepcionista_id', '=', Auth::user()->id)
+                ->select('usuarios.id');
+            $data = Agendamento::whereIn('usuario_id', $p_atende)->get();
+        }else {
             $data = Agendamento::where('usuario_id', '=', $id)->get();
             $profissional = DB::table('agendamentos')->join('usuarios', function ($join){$join->on('agendamentos.usuario_id', '=', 'usuarios.id');})
                                                      ->where('agendamentos.usuario_id','=', $id)->select('usuarios.nome')->get();

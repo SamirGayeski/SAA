@@ -8633,7 +8633,7 @@ body {
   }
 }
 
-#dashboard {
+#dashboard_cabecalho_chart {
   text-align: center;
   padding-top: 10px;
   border-top-left-radius: 10px;
@@ -8641,8 +8641,96 @@ body {
   border-bottom-width: 2px;
   border-bottom-style: double;
   border-bottom-color: rgba(0, 0, 0, 0.25);
-  background-color: rgba(172, 220, 151, 0.25);
+  background-color: rgba(63, 107, 132, 0.63);
   border-top-right-radius: 10px;
+}
+
+#dashboard_cabecalho_agendados {
+  text-align: center;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: double;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  background-color: #a0d1ff;
+  border-top-right-radius: 10px;
+}
+
+#dashboard_cabecalho_confirmados {
+  text-align: center;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: double;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  background-color: #D8D8D8;
+  border-top-right-radius: 10px;
+}
+
+#dashboard_cabecalho_atendidos {
+  text-align: center;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: double;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  background-color: #A9F5A9;
+  border-top-right-radius: 10px;
+}
+
+#dashboard_cabecalho_media {
+  text-align: center;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: double;
+  border-bottom-color: rgba(0, 0, 0, 0.25);
+  background-color: #f4f7a4;
+  border-top-right-radius: 10px;
+}
+
+#dashboard_detalhes_agendados {
+  height: 80px;
+  font-style: italic;
+  font-size: xx-large;
+  color: #545353;
+  text-align: center;
+  padding-top: 10%;
+  background: rgba(160, 209, 255, 0.22);
+}
+
+#dashboard_detalhes_confirmados {
+  height: 80px;
+  font-style: italic;
+  font-size: xx-large;
+  color: #545353;
+  text-align: center;
+  padding-top: 10%;
+  background: rgba(216, 216, 216, 0.34);
+}
+
+#dashboard_detalhes_atendidos {
+  height: 80px;
+  font-style: italic;
+  font-size: xx-large;
+  color: #545353;
+  text-align: center;
+  padding-top: 10%;
+  background: rgba(169, 245, 169, 0.42);
+}
+
+#dashboard_detalhes_media {
+  height: 80px;
+  font-style: italic;
+  font-size: xx-large;
+  color: #545353;
+  text-align: center;
+  padding-top: 10%;
+  background: rgba(244, 247, 164, 0.35);
 }
 
 /*!
