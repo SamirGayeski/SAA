@@ -153,8 +153,8 @@
                         } else {
                             document.getElementById('statusnull').style = 'display: none;';
                             document.getElementById('btn').style = 'padding: 20px;';
-                            $('#btn a').attr('href', 'relatorios/'+status+'/agendamentos');
-                        }
+                        $('#btn a').attr('href', 'relatorios/'+status+'/agendamentos');
+                    }
                     });
                 });
 

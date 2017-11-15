@@ -98,6 +98,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('{id}/destroy', ['as'=>'usuarios.destroy', 'uses'=>'UsuariosController@destroy']);
         Route::get('{id}/edit', ['as'=>'usuarios.edit', 'uses'=>'UsuariosController@edit']);
         Route::put('{id}/update', ['as'=>'usuarios.update', 'uses'=>'UsuariosController@update']);
+
+        //configuração recepcionista
+        Route::get('{id}/config', ['as'=>'usuarios.config', 'uses'=>'UsuariosConfigController@index']);
+        Route::put('{id}/updateconfig', ['as'=>'usuarios.storeconfig', 'uses'=>'UsuariosConfigController@storeconfig']);
+        Route::get('{id_recepcionista}/{id_profissional}/destroyconfig', ['as'=>'usuarios.destroyconfig', 'uses'=>'UsuariosConfigController@destroyconfig']);
     });
 
     Route::group(['prefix'=>'agendamentos', 'where'=>['id'=>'[0-9]+']], function (){

@@ -13,31 +13,33 @@
             <thead>
             <tr>
                 <th>Nome</th>
-                <th>Login</th>
                 <th>Email</th>
                 <th>Telefone</th>
                 <th>Situação</th>
                 <th>Tipo</th>
-                <th style="text-align: center; width: 10%">Ação</th>
+                <th style="text-align: center; width: 15%">Ação</th>
             </tr>
             </thead>
             <tbody>
             @foreach($usuarios as $user)
                 <tr>
                     <td>{{$user->nome}}</td>
-                    <td>{{$user->login}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->telefone}}</td>
                     <td>{{$user->situacao}}</td>
                     <td>{{$user->tipoUsuario}}</td>
                     <td style="text-align: center;">
-                        <a href="{{ route('usuarios.edit', ['id'=>$user->id]) }}" class="btn-sm btn-info"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></a>
-                        <a onclick="return confirm('O usuario {{$user->nome}} será removido, deseja continuar ?')" href="{{ route('usuarios.destroy', ['id'=>$user->id]) }}" class="btn-sm btn-danger"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
+                        @if ($user->tipoUsuario == 'Recepcionista')
+                            <a href="{{ route('usuarios.config', ['id'=>$user->id]) }}" class="btn-sm btn btn-secondary"><i class="fa fa-gear" aria-hidden="true"></i></a>
+                        @endif
+                        <a href="{{ route('usuarios.edit', ['id'=>$user->id]) }}" class="btn-sm btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a onclick="return confirm('O usuario {{$user->nome}} será removido, deseja continuar ?')" href="{{ route('usuarios.destroy', ['id'=>$user->id]) }}" class="btn-sm btn btn-danger"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach
             </tbody>
         </table>
+
         <div style="text-align: center;">
             {!! $usuarios->links() !!}
         </div>

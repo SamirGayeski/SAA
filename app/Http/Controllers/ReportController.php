@@ -27,7 +27,7 @@ class ReportController extends Controller{
     public function atendimentos($datainicial, $datafinal){
 
         $input = public_path() .'/reports/Atendimentos.jasper';
-        $output = public_path() . '/reports/Atendimentos';
+        $output = public_path() . '/Atendimentos';
         $options = [
             'format' => ['pdf'],
             'locale' => 'pt_BR',
@@ -51,7 +51,7 @@ class ReportController extends Controller{
     public function agendamentos($status){
 
         $input = public_path() .'/reports/Agendamentos.jasper';
-        $output = public_path() . '/reports/Agendamentos';
+        $output = public_path() . '/Agendamentos';
         $options = [
             'format' => ['pdf'],
             'locale' => 'pt_BR',
@@ -75,7 +75,7 @@ class ReportController extends Controller{
     public function paciente(){
 
         $input = public_path() .'/reports/Pacientes.jasper';
-        $output = public_path() . '/reports/Pacientes';
+        $output = public_path() . '/Pacientes';
         $options = [
             'format' => ['pdf'],
             'locale' => 'pt_BR',

@@ -21,7 +21,7 @@ class UsuariosController extends Controller
     }
 
     public function index(){
-        $usuarios = Usuario::paginate(15);
+        $usuarios = Usuario::orderBy('tipoUsuario')->orderBy('nome')->paginate(15);
         return view('usuarios.index', ['usuarios'=>$usuarios]);
     }
 
