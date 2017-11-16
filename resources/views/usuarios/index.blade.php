@@ -30,10 +30,10 @@
                     <td>{{$user->tipoUsuario}}</td>
                     <td style="text-align: center;">
                         @if ($user->tipoUsuario == 'Recepcionista')
-                            <a href="{{ route('usuarios.config', ['id'=>$user->id]) }}" class="btn-sm btn btn-secondary"><i class="fa fa-gear" aria-hidden="true"></i></a>
+                            <a href="{{ route('usuarios.config', ['id'=>$user->id]) }}" class="btn-sm btn-secondary" title="Configurações"><i class="fa fa-gear" aria-hidden="true"></i></a>
                         @endif
-                        <a href="{{ route('usuarios.edit', ['id'=>$user->id]) }}" class="btn-sm btn btn-info"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
-                        <a onclick="return confirm('O usuario {{$user->nome}} será removido, deseja continuar ?')" href="{{ route('usuarios.destroy', ['id'=>$user->id]) }}" class="btn-sm btn btn-danger"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
+                        <a href="{{ route('usuarios.edit', ['id'=>$user->id]) }}" class="btn-sm btn-info" title="Editar"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a>
+                        <a onclick="return confirm('O usuario {{$user->nome}} será removido, deseja continuar ?')" href="{{ route('usuarios.destroy', ['id'=>$user->id]) }}" class="btn-sm btn-danger" title="Remover"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach

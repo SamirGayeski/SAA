@@ -39,8 +39,8 @@
         <hr size="300" width="100%" align="left">
 
         <div class="form-group">
-            <a href="{{ route('convenios') }}" class="btn btn-danger">Cancelar</a>
-            {!! Form::submit('Salvar', ['class'=>'btn btn-success']) !!}
+            <a href="{{ route('convenios') }}" class="btn-sm btn btn-danger">Cancelar</a>
+            {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success']) !!}
         </div>
 
         {!! Form::close() !!}

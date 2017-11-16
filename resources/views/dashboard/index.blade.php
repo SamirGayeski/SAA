@@ -26,6 +26,7 @@
                     {{ Form::select('profissional', ['972382'=>'Todos os profissionais'] + \Illuminate\Support\Facades\DB::table('recepcionista_atendes')->join('usuarios', 'recepcionista_atendes.profissionalsaude_id', '=', 'usuarios.id')->where('recepcionista_atendes.recepcionista_id', '=', Auth::user()->id)->select('usuarios.id', 'usuarios.nome')->orderBy('nome')->pluck('nome','id')->toArray(), null, ['class'=>'form-control', 'placeholder' => 'Selecione um profissional', 'id' => 'profissional', 'style'=>'height: 35px; font-size: small; width: 220px;']) }}
                 </div>
             @endif
+            <a href="#" class="btn-sm btn btn-outline-secondary" style="margin-right: 15px; padding-top: 10px; height: 34px;" title="Atualizar"><i class="fa fa-refresh" aria-hidden="true"></i></a>
         </div>
 
         <h3><i class="fa fa-bar-chart" aria-hidden="true"></i> Dashboard</h3>

@@ -30,8 +30,8 @@
         </div>
 
         <div class="form-group col-md-8">
-            <a href="{{ route('procedimentos') }}" class="btn btn-danger">Cancelar</a>
-            {!! Form::submit('Salvar', ['class'=>'btn btn-success']) !!}
+            <a href="{{ route('procedimentos') }}" class="btn-sm btn btn-danger">Cancelar</a>
+            {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success']) !!}
         </div>
 
         {!! Form::close() !!}

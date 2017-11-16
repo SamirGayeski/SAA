@@ -16,7 +16,7 @@
 
         <div class="row" style="padding: 20px;">
             <div class="form-group">
-                {!! Form::submit('Buscar Histórico', ['class'=>'btn btn-info']) !!}
+                {!! Form::submit('Buscar Histórico', ['class'=>'btn-sm btn btn-info', 'title'=>'Buscar Histórico']) !!}
             </div>
         </div>
 

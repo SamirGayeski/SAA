@@ -18,8 +18,8 @@
                     <td>{{$conv->nome}}</td>
                     <td>{{$conv->numeroRegistro}}</td>
                     <td style="text-align: center;">
-                        <a href="{{ route('convenios.edit', ['id'=>$conv->id]) }}" class="btn-sm btn-info"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></a>
-                        <a onclick="return confirm('O convenio {{$conv->nome}} será removido, como também todos os planos vinculados ao mesmo. Deseja continuar ?')" href="{{ route('convenios.destroy', ['id'=>$conv->id]) }}" class="btn-sm btn-danger"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
+                        <a href="{{ route('convenios.edit', ['id'=>$conv->id]) }}" class="btn-sm btn-info" title="Editar"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></a>
+                        <a onclick="return confirm('O convenio {{$conv->nome}} será removido, como também todos os planos vinculados ao mesmo. Deseja continuar ?')" href="{{ route('convenios.destroy', ['id'=>$conv->id]) }}" class="btn-sm btn-danger" title="Remover"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach
