@@ -136,8 +136,8 @@
 
         <div class="row" style="padding: 20px;">
             <div class="form-group">
-                <a href="{{ route('agendamentos') }}" class="btn btn-danger">Cancelar</a>
-                {!! Form::submit('Salvar', ['class'=>'btn btn-success']) !!}
+                <a href="{{ route('agendamentos') }}" class="btn-sm btn btn-danger">Cancelar</a>
+                {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success']) !!}
             </div>
         </div>
 

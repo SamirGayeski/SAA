@@ -57,6 +57,8 @@
 
         ?>
 
+        <a href="{{ route('usuarios') }}" class="btn-sm btn btn-danger">Cancelar</a>
+
         <div id="modalplano" class="modal bs-example-modal-sm" tabindex="-1" role="dialog">
             <div class="modal-dialog modal-sm" role="document">
                 <div class="modal-content" style="width: 450px;">
@@ -69,8 +71,8 @@
                             {{ Form::select('profissionalsaude_id', \App\usuario::where('tipoUsuario', '=', 'Profissional da Saúde')->whereNotIn('id', $profRecep)->orderBy('nome')->pluck('nome','id')->toArray(), null, ['class'=>'form-control', 'placeholder' => 'Selecione um profissional', 'id' => 'profissional', 'style'=>'height: 40px;']) }}
                         </div>
                         <div class="form-group" style="margin: 15px 15px 15px 0px; float: right;">
-                            <button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-                            {!! Form::submit('Incluir', ['class'=>'btn btn-success', 'id'=>'buttons']) !!}
+                            <button type="button" class="btn-sm btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                            {!! Form::submit('Incluir', ['class'=>'btn-sm btn btn-success', 'id'=>'buttons']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div>

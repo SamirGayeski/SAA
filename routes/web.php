@@ -260,6 +260,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(['prefix'=>'logs', 'middleware'=>['profissional', 'recepcionista'], 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'logs', 'uses'=>'LogsController@index']);
+        Route::post('search', ['as'=>'logs.search', 'uses'=>'LogsController@search']);
+        Route::get('{datainicial}/{datafinal}/result', ['as'=>'logs.result', 'uses'=>'LogsController@result']);
     });
 
     Route::group(['prefix'=>'relatorios', 'middleware'=>['profissional','recepcionista'], 'where'=>['id'=>'[0-9]+']], function (){
@@ -298,6 +300,8 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(['prefix'=>'dashboard', 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'dashboard', 'uses'=>'DashboardsController@index']);
+        Route::post('search', ['as'=>'dashboard.search', 'uses'=>'DashboardsController@search']);
+        Route::get('{datainicial}/{datafinal}/{profissional}/result', ['as'=>'dashboard.result', 'uses'=>'DashboardsController@result']);
     });
 });
 

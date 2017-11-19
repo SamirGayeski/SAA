@@ -20,8 +20,8 @@
                     <td>{{$proc->duracao}}</td>
                     <td>{{$proc->descricao}}</td>
                     <td style="text-align: center;">
-                        <a href="{{ route('procedimentos.edit', ['id'=>$proc->id]) }}" class="btn-sm btn-info"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></a>
-                        <a onclick="return confirm('O procedimento {{$proc->nome}} será removido, deseja continuar ?')" href="{{ route('procedimentos.destroy', ['id'=>$proc->id]) }}" class="btn-sm btn-danger"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
+                        <a href="{{ route('procedimentos.edit', ['id'=>$proc->id]) }}" class="btn-sm btn-info" title="Editar"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></a>
+                        <a onclick="return confirm('O procedimento {{$proc->nome}} será removido, deseja continuar ?')" href="{{ route('procedimentos.destroy', ['id'=>$proc->id]) }}" class="btn-sm btn-danger" title="Remover"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach

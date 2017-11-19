@@ -73,14 +73,6 @@
                                                 <tr>
                                                     <td>
                                                         <svg height="30" width="30">
-                                                            <circle cx="15" cy="15" r="10" stroke-width="3" fill="#F4FA58" />
-                                                        </svg>
-                                                    </td>
-                                                    <td>Em andamento</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <svg height="30" width="30">
                                                             <circle cx="15" cy="15" r="10" stroke-width="3" fill="#A9F5A9" />
                                                         </svg>
                                                     </td>

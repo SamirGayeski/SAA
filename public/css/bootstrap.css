@@ -8640,9 +8640,10 @@ body {
   padding-bottom: 10px;
   border-bottom-width: 2px;
   border-bottom-style: double;
-  border-bottom-color: rgba(0, 0, 0, 0.25);
-  background-color: rgba(63, 107, 132, 0.63);
+  border-bottom-color: #0000001a;
+  background-color: #3f6b844d;
   border-top-right-radius: 10px;
+  font-weight: 500;
 }
 
 #dashboard_cabecalho_agendados {
@@ -8652,9 +8653,10 @@ body {
   padding-bottom: 10px;
   border-bottom-width: 2px;
   border-bottom-style: double;
-  border-bottom-color: rgba(0, 0, 0, 0.25);
-  background-color: #a0d1ff;
+  border-bottom-color: #0000001a;
+  background-color: #a0d1ff87;
   border-top-right-radius: 10px;
+  color: #121ca9c2;
 }
 
 #dashboard_cabecalho_confirmados {
@@ -8664,9 +8666,10 @@ body {
   padding-bottom: 10px;
   border-bottom-width: 2px;
   border-bottom-style: double;
-  border-bottom-color: rgba(0, 0, 0, 0.25);
-  background-color: #D8D8D8;
+  border-bottom-color: #0000001a;
+  background-color: #d8d8d8c2;
   border-top-right-radius: 10px;
+  color: #5d5b5b;
 }
 
 #dashboard_cabecalho_atendidos {
@@ -8676,9 +8679,23 @@ body {
   padding-bottom: 10px;
   border-bottom-width: 2px;
   border-bottom-style: double;
-  border-bottom-color: rgba(0, 0, 0, 0.25);
-  background-color: #A9F5A9;
+  border-bottom-color: #0000001a;
+  background-color: #a9f5a96b;
   border-top-right-radius: 10px;
+  color: #026d02;
+}
+
+#dashboard_cabecalho_naocompareceu {
+  text-align: center;
+  padding-top: 10px;
+  border-top-left-radius: 10px;
+  padding-bottom: 10px;
+  border-bottom-width: 2px;
+  border-bottom-style: double;
+  border-bottom-color: #0000001a;
+  background-color: #fa58587d;
+  border-top-right-radius: 10px;
+  color: #c50707;
 }
 
 #dashboard_cabecalho_media {
@@ -8688,9 +8705,10 @@ body {
   padding-bottom: 10px;
   border-bottom-width: 2px;
   border-bottom-style: double;
-  border-bottom-color: rgba(0, 0, 0, 0.25);
-  background-color: #f4f7a4;
+  border-bottom-color: #0000001a;
+  background-color: #f4f7a499;
   border-top-right-radius: 10px;
+  color: #a0a006;
 }
 
 #dashboard_detalhes_agendados {
@@ -8700,7 +8718,10 @@ body {
   color: #545353;
   text-align: center;
   padding-top: 10%;
-  background: rgba(160, 209, 255, 0.22);
+  background: #a0d1ff1f;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #121ca9c2;
 }
 
 #dashboard_detalhes_confirmados {
@@ -8710,7 +8731,10 @@ body {
   color: #545353;
   text-align: center;
   padding-top: 10%;
-  background: rgba(216, 216, 216, 0.34);
+  background: #d8d8d814;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #5d5b5b;
 }
 
 #dashboard_detalhes_atendidos {
@@ -8720,7 +8744,23 @@ body {
   color: #545353;
   text-align: center;
   padding-top: 10%;
-  background: rgba(169, 245, 169, 0.42);
+  background: #a9f5a929;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #026d02;
+}
+
+#dashboard_detalhes_naocompareceu {
+  height: 80px;
+  font-style: italic;
+  font-size: xx-large;
+  color: #545353;
+  text-align: center;
+  padding-top: 10%;
+  background: #fa58581c;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #c50707;
 }
 
 #dashboard_detalhes_media {
@@ -8730,7 +8770,10 @@ body {
   color: #545353;
   text-align: center;
   padding-top: 10%;
-  background: rgba(244, 247, 164, 0.35);
+  background: #f4f7a42e;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  color: #a0a006;
 }
 
 /*!

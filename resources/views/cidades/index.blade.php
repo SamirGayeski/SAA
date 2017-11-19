@@ -18,8 +18,8 @@
                     <td>{{$cidade->nome}}</td>
                     <td>{{$cidade->uf}}</td>
                     <td style="text-align: center;">
-                        <a href="{{ route('cidades.edit', ['id'=>$cidade->id]) }}" class="btn-sm btn-info"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></a>
-                        <a onclick="return confirm('A cidade {{$cidade->nome}} será removido, deseja continuar ?')" href="{{ route('cidades.destroy', ['id'=>$cidade->id]) }}" class="btn-sm btn-danger"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
+                        <a href="{{ route('cidades.edit', ['id'=>$cidade->id]) }}" class="btn-sm btn-info" title="Editar"><i class="fa fa-pencil-square-o " aria-hidden="true"></i></a>
+                        <a onclick="return confirm('A cidade {{$cidade->nome}} será removido, deseja continuar ?')" href="{{ route('cidades.destroy', ['id'=>$cidade->id]) }}" class="btn-sm btn-danger" title="Remover"><i class="fa fa-trash-o " aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach

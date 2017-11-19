@@ -57,7 +57,7 @@
 
         <div class="row" id="btn" style="padding: 20px; display: none;">
             <div class="form-group">
-                <a class="btn btn-info"><i class="fa fa-share" aria-hidden="true"></i> Gerar Relatório</a>
+                <a class="btn-sm btn btn-info"><i class="fa fa-share" aria-hidden="true" title="Gerar Relatório"></i> Gerar Relatório</a>
             </div>
         </div>
 

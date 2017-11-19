@@ -233,8 +233,8 @@
 
         <div class="row" style="padding: 20px;">
             <div class="form-group">
-                <a href="{{ route('pacientes') }}" class="btn btn-danger">Cancelar</a>
-                {!! Form::submit('Salvar', ['class'=>'btn btn-success']) !!}
+                <a href="{{ route('pacientes') }}" class="btn-sm btn btn-danger">Cancelar</a>
+                {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success']) !!}
             </div>
         </div>
 
@@ -261,8 +261,8 @@
                             {!! Form::text('telefone', null, ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group" style="margin: 15px 15px 15px 0px; float: right;">
-                            <button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-                            {!! Form::submit('Salvar', ['class'=>'btn btn-success', 'id'=>'buttons']) !!}
+                            <button type="button" class="btn-sm btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                            {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success', 'id'=>'buttons']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div>
@@ -295,8 +295,8 @@
                             {!! Form::text('telefone', '',['class'=>'form-control', 'id'=>'telefone']) !!}
                         </div>
                         <div class="form-group" style="margin: 15px 15px 15px 0px; float: right;">
-                            <button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-                            {!! Form::submit('Salvar', ['class'=>'btn btn-success', 'id'=>'buttons']) !!}
+                            <button type="button" class="btn-sm btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                            {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success', 'id'=>'buttons']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div>

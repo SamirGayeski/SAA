@@ -69,8 +69,8 @@
         ?>
 
         <div class="form-group">
-            <a href="{{ route('convenios') }}" class="btn btn-danger">Cancelar</a>
-            {!! Form::submit('Salvar', ['class'=>'btn btn-success', 'id'=>'buttons']) !!}
+            <a href="{{ route('convenios') }}" class="btn-sm btn btn-danger">Cancelar</a>
+            {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success', 'id'=>'buttons']) !!}
         </div>
 
         {!! Form::close() !!}
@@ -88,8 +88,8 @@
                             {!! Form::text('descricao', null, ['class'=>'form-control']) !!}
                         </div>
                         <div class="form-group" style="margin: 15px 15px 15px 0px; float: right;">
-                            <button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-                            {!! Form::submit('Salvar', ['class'=>'btn btn-success', 'id'=>'buttons']) !!}
+                            <button type="button" class="btn-sm btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                            {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success', 'id'=>'buttons']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div>
@@ -114,8 +114,8 @@
                             {!! Form::text('descricao', '',['class'=>'form-control', 'id'=>'descricaoplano']) !!}
                         </div>
                         <div class="form-group" style="margin: 15px 15px 15px 0px; float: right;">
-                            <button type="button" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
-                            {!! Form::submit('Salvar', ['class'=>'btn btn-success', 'id'=>'buttons']) !!}
+                            <button type="button" class="btn-sm btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                            {!! Form::submit('Salvar', ['class'=>'btn-sm btn btn-success', 'id'=>'buttons']) !!}
                         </div>
                         {!! Form::close() !!}
                     </div>
