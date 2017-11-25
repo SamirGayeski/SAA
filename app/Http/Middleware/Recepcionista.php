@@ -16,7 +16,7 @@ class Recepcionista
      */
     public function handle($request, Closure $next, $guard = null)
     {
-        if (Auth::guard($guard)->check() && Auth::user()->tipoUsuario == 'Recepcionista') {
+        if (Auth::guard($guard)->check() && Auth::user()->admin == '0') {
             return redirect('/dashboard');
         }
         return $next($request);

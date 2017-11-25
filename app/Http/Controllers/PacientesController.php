@@ -24,8 +24,8 @@ class PacientesController extends Controller
     return view('pacientes.index', ['pacientes'=>$pacientes]);
     }
 
-    public function search(){
-        $pacientes = Paciente::where('nome', 'like', '%Mat%')->get();
+    public function search($pesquisa){
+        $pacientes = Paciente::where('nome', 'like', '%'.$pesquisa.'%')->paginate(15);
         return view('pacientes.index', ['pacientes'=>$pacientes]);
     }
 

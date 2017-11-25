@@ -22,6 +22,10 @@
                 <div class="col">
                     {{ Form::select('profissional', ['0'=>'Todos os profissionais'] + \App\Usuario::where('tipoUsuario', '=', 'Profissional da Saúde')->orderBy('nome')->pluck('nome','id')->toArray(), $profissional, ['class'=>'form-control', 'id' => 'profissional', 'style'=>'height: 35px; font-size: small; width: 220px;']) }}
                 </div>
+            @elseif(Auth::user()->tipoUsuario == 'Profissional da Saúde' && Auth::user()->flagAdmin == false)
+                <div class="col">
+                    {{ Form::select('profissional', [Auth::user()->id=>Auth::user()->nome], $profissional, ['class'=>'form-control', 'id' => 'profissional', 'style'=>'height: 35px; font-size: small; width: 220px;']) }}
+                </div>
             @elseif(Auth::user()->tipoUsuario == 'Recepcionista')
                 <div class="col">
                     {{ Form::select('profissional', ['972382'=>'Todos os profissionais'] + \Illuminate\Support\Facades\DB::table('recepcionista_atendes')->join('usuarios', 'recepcionista_atendes.profissionalsaude_id', '=', 'usuarios.id')->where('recepcionista_atendes.recepcionista_id', '=', Auth::user()->id)->select('usuarios.id', 'usuarios.nome')->orderBy('nome')->pluck('nome','id')->toArray(), $profissional, ['class'=>'form-control', 'id' => 'profissional', 'style'=>'height: 35px; font-size: small; width: 220px;']) }}
@@ -47,8 +51,8 @@
 
                 var data2 = google.visualization.arrayToDataTable([
                     ['Task', 'Hours per Day'],
-                    ['Homens', {{$particular}}],
-                    ['Mulheres', {{$convenio}}]
+                    ['Homens', {{$homens}}],
+                    ['Mulheres', {{$mulheres}}]
                 ]);
 
                 var chart = new google.visualization.PieChart(document.getElementById('chart'));

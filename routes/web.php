@@ -52,7 +52,7 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::group(['prefix'=>'pacientes', 'where'=>['id'=>'[0-9]+']], function (){
         Route::get('', ['as'=>'pacientes', 'uses'=>'PacientesController@index']);
-        Route::get('search', ['as'=>'pacientes.search', 'uses'=>'PacientesController@search']);
+        Route::get('{pesquisa}/search', ['as'=>'pacientes.search', 'uses'=>'PacientesController@search']);
         Route::get('create', ['as'=>'pacientes.create', 'uses'=>'PacientesController@create']);
         Route::post('store', ['as'=>'pacientes.store', 'uses'=>'PacientesController@store']);
         Route::get('{id}/destroy', ['as'=>'pacientes.destroy', 'uses'=>'PacientesController@destroy']);

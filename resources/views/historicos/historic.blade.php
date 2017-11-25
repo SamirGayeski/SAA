@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <a href="{{ route('historicos') }}" class="btn-sm btn btn-success" style="float: right; padding: 5px 25px 5px 25px; font-size: 15px; margin-top: 7px; margin-right: 7px;"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
+        <a href="{{ route('historicos') }}" class="btn-sm btn btn-success" style="float: right; padding: 5px 25px 5px 25px; font-size: 15px; margin-right: 7px;"><i class="fa fa-reply" aria-hidden="true"></i> Voltar</a>
         <p style="font-size: 22px;"><strong>Histórico:</strong><i> {{$paciente->first()->nome}}</i></p>
 
         <hr size="300" width="100%" align="left">

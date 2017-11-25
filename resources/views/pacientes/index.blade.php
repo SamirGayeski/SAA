@@ -4,8 +4,8 @@
     <div class="container">
         <h3><i class="fa fa-male" aria-hidden="true"></i> Pacientes
             <div class="input-group-btn" style="float: right;">
-                {!! Form::text('search', null, ['class'=>'form-control', 'style'=>'border-bottom-right-radius: 0px; border-top-right-radius: 0px;']) !!}
-                <div class="input-group-addon"><a href="{{ route('pacientes.search') }}"><i class="fa fa-search" aria-hidden="true"></i> </a></div>
+                {!! Form::text('search', null, ['class'=>'form-control', 'style'=>'border-bottom-right-radius: 0px; border-top-right-radius: 0px;', 'id'=>'search']) !!}
+                <div class="input-group-addon"><a id="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></a></div>
             </div>
         </h3>
             <a href="{{ route('pacientes.create') }}" class="btn-sm btn btn-outline-info" style="float: left; margin-bottom: 10px; margin-top: 25px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Paciente</a>
@@ -38,8 +38,19 @@
             @endforeach
             </tbody>
         </table>
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#pesquisa').on('click', function(){
+                    var search = document.getElementById('search').value;
+                    var url = "{{ route('pacientes.search', '_search_') }}".replace('_search_', search);
+                    $('#pesquisa').attr('href', url);
+                });
+            });
+        </script>
         <div style="text-align: center;">
             {!! $pacientes->links() !!}
         </div>
+
+
     </div>
 @endsection
