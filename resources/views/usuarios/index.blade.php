@@ -3,12 +3,8 @@
 @section('content')
     <div class="container">
         <h3><i class="fa fa-user" aria-hidden="true"></i> Usuários
-            <div class="input-group-btn" style="float: right;">
-                {!! Form::text('search', null, ['class'=>'form-control', 'style'=>'border-bottom-right-radius: 0px; border-top-right-radius: 0px;']) !!}
-                <div class="input-group-addon"><a href="{{ route('usuarios.search') }}"><i class="fa fa-search" aria-hidden="true"></i> </a></div>
-            </div>
         </h3>
-        <a href="{{ route('usuarios.create') }}" class="btn-sm btn btn-outline-info" style="float: left; margin-bottom: 10px; margin-top: 25px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Usuário</a>
+        <a href="{{ route('usuarios.create') }}" class="btn-sm btn btn-outline-info" style="float: right; margin-bottom: 10px; margin-top: 25px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Usuário</a>
         <table class="table table-striped table-bordered table-hover">
             <thead>
             <tr>
