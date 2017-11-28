@@ -3,6 +3,17 @@
 @section('content')
     <div class="container">
         <h3><i class="fa fa-user" aria-hidden="true"></i> Usuários
+            <div class="input-group-btn" style="float: right;">
+                <?php
+                if (isset($pesquisa)){
+                    $value = $pesquisa;
+                } else {
+                    $value = null;
+                }
+                ?>
+                {!! Form::text('search', $value, ['class'=>'form-control', 'style'=>'border-bottom-right-radius: 0px; border-top-right-radius: 0px;', 'id'=>'search']) !!}
+                <div class="input-group-addon"><a href="" id="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+            </div>
         </h3>
         <a href="{{ route('usuarios.create') }}" class="btn-sm btn btn-outline-info" style="float: right; margin-bottom: 10px; margin-top: 25px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Usuário</a>
         <table class="table table-striped table-bordered table-hover">
@@ -35,7 +46,15 @@
             @endforeach
             </tbody>
         </table>
-
+        <script type="text/javascript">
+            $(document).ready(function() {
+                $('#pesquisa').on('click', function(){
+                    var search = document.getElementById('search').value;
+                    var url = "{{ route('usuarios.search', '_search_') }}".replace('_search_', search);
+                    $('#pesquisa').attr('href', url);
+                });
+            });
+        </script>
         <div style="text-align: center;">
             {!! $usuarios->links() !!}
         </div>

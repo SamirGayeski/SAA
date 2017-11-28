@@ -25,9 +25,13 @@ class UsuariosController extends Controller
         return view('usuarios.index', ['usuarios'=>$usuarios]);
     }
 
-    public function search(){
-        $usuarios = Usuario::where('nome', 'like', '%Mat%')->get();
-        return view('usuarios.index', ['usuarios'=>$usuarios]);
+    public function search($pesquisa){
+        $usuarios = Usuario::orWhere('nome', 'ilike', '%'.$pesquisa.'%')
+            ->orWhere('email', 'ilike', '%'.$pesquisa.'%')
+            ->orWhere('tipoUsuario', 'ilike', '%'.$pesquisa.'%')
+            ->orWhere('situacao', 'ilike', '%'.$pesquisa.'%')
+            ->paginate(15);
+        return view('usuarios.index', ['usuarios'=>$usuarios, 'pesquisa'=>$pesquisa]);
     }
 
     public function create(){

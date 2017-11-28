@@ -4,8 +4,15 @@
     <div class="container">
         <h3><i class="fa fa-male" aria-hidden="true"></i> Pacientes
             <div class="input-group-btn" style="float: right;">
-                {!! Form::text('search', null, ['class'=>'form-control', 'style'=>'border-bottom-right-radius: 0px; border-top-right-radius: 0px;', 'id'=>'search']) !!}
-                <div class="input-group-addon"><a id="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></a></div>
+                <?php
+                if (isset($pesquisa)){
+                    $value = $pesquisa;
+                } else {
+                    $value = null;
+                }
+                ?>
+                {!! Form::text('search', $value, ['class'=>'form-control', 'style'=>'border-bottom-right-radius: 0px; border-top-right-radius: 0px;', 'id'=>'search']) !!}
+                <div class="input-group-addon"><a href="" id="pesquisa"><i class="fa fa-search" aria-hidden="true"></i></a></div>
             </div>
         </h3>
             <a href="{{ route('pacientes.create') }}" class="btn-sm btn btn-outline-info" style="float: left; margin-bottom: 10px; margin-top: 25px; font-weight: bold;"><i class="fa fa-plus-circle" aria-hidden="true"></i> Incluir Paciente</a>

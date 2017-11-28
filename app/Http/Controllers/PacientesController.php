@@ -25,8 +25,8 @@ class PacientesController extends Controller
     }
 
     public function search($pesquisa){
-        $pacientes = Paciente::where('nome', 'like', '%'.$pesquisa.'%')->paginate(15);
-        return view('pacientes.index', ['pacientes'=>$pacientes]);
+        $pacientes = Paciente::orWhere('nome', 'ilike', '%'.$pesquisa.'%')->orWhere('cpf', 'ilike', '%'.$pesquisa.'%')->paginate(15);
+        return view('pacientes.index', ['pacientes'=>$pacientes, 'pesquisa'=>$pesquisa]);
     }
 
     public function create(){
